@@ -1,0 +1,1 @@
+El Sistema de Historias Clínicas Electrónicas - Centro de Salud Docente San Fernando permitira gestionar historias clinicas electronicas en la posta San Fernando, incluyendo el registro de las historia clinicas y su consulta posterior.
