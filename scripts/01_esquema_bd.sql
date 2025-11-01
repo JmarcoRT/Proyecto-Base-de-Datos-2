@@ -1,0 +1,37 @@
+-- ============================================
+-- CREACION DE TABLESPACES Y USUARIO 
+-- ============================================
+
+-- Ingresar a la PDB correcta
+ALTER SESSION SET CONTAINER = XEPDB1;
+
+-- Crear TABLESPACE de datos
+CREATE TABLESPACE shce_datos
+    DATAFILE 'shce_datos1.dbf'
+    SIZE 100M
+    AUTOEXTEND ON NEXT 10M MAXSIZE UNLIMITED
+    EXTENT MANAGEMENT LOCAL
+    SEGMENT SPACE MANAGEMENT AUTO;
+
+-- Crear TABLESPACE temporal
+CREATE TEMPORARY TABLESPACE shce_tmp
+    TEMPFILE 'shce_tmp1.dbf'
+    SIZE 50M
+    AUTOEXTEND ON NEXT 5M MAXSIZE UNLIMITED
+    EXTENT MANAGEMENT LOCAL;
+
+-- Crear usuario de la aplicacion
+CREATE USER shce_app IDENTIFIED BY shce_pass
+    DEFAULT TABLESPACE shce_datos
+    TEMPORARY TABLESPACE shce_tmp
+    QUOTA UNLIMITED ON shce_datos;
+
+-- Otorgar privilegios al usuario
+GRANT CONNECT, RESOURCE TO shce_app;
+
+-- Permitir creacion de vistas, sininimos, etc
+GRANT CREATE VIEW, CREATE SYNONYM, CREATE SEQUENCE TO shce_app;
+
+-- Permiso para conectarse desde herramientas externas
+ALTER USER shce_app ACCOUNT UNLOCK;
+
