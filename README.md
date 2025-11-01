@@ -1,1 +1,5 @@
-El Sistema de Historias Clínicas Electrónicas - Centro de Salud Docente San Fernando permitira gestionar historias clinicas electronicas en la posta San Fernando, incluyendo el registro de las historia clinicas y su consulta posterior.
+# 🏥 Sistema de Historias Clinicas Electronicas  
+### Centro de Salud Docente San Fernando (SHCE-CSDSF)
+
+El **SHCE-CSDSF** permitira la gestion de las historias clinicas del centro, incluyendo el registro, almacenamiento y consulta posterior de la informacion de los pacientes.
+
